@@ -1,6 +1,8 @@
 com\bda\employee\core\constant\package-info.class
 com\bda\employee\core\service\JobService.class
 com\bda\employee\core\service\EmployeeService.class
+com\bda\employee\core\config\MyCredentialsMatcher.class
+com\bda\employee\core\config\MyRealm.class
 com\bda\employee\core\config\ShiroConfig.class
 com\bda\employee\core\controller\EmployeeController.class
 com\bda\employee\core\mapper\EmployeeMapper.class
@@ -9,4 +11,5 @@ com\bda\employee\core\controller\JobController.class
 com\bda\employee\core\model\Employee.class
 com\bda\employee\core\vo\EmployeeJob.class
 com\bda\employee\core\mapper\JobMapper.class
+com\bda\employee\core\controller\LoginController.class
 com\bda\employee\core\constant\EmployeeConstant.class

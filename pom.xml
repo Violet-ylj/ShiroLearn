@@ -22,6 +22,14 @@
             <version>${bda.common.client.version}</version>
         </dependency>
 
-  </dependencies>
+       <dependency>
+           <groupId>org.apache.shiro</groupId>
+           <artifactId>shiro-spring-boot-starter</artifactId>
+           <version>1.8.0</version> <!-- 请替换为最新版本 -->
+       </dependency>
+
+
+
+   </dependencies>
   
 </project>
