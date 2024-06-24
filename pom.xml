@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.bda.employee</groupId>
+  <artifactId>bda-employee</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>bda-employee-starter</module>
+  	<module>bda-employee-core</module>
+  </modules>
+  <!-- 目前最新版本 -->
+  <properties>
+      <bda.common.client.version>21.1.0-SNAPSHOT</bda.common.client.version>
+  </properties>
+  
+  <!-- 公共区域，只需要引入下面这个 依赖，就能完成项目的基础配置 -->
+   <dependencies>
+
+        <dependency>
+            <groupId>com.bda.common</groupId>
+            <artifactId>bda-common-client</artifactId>
+            <version>${bda.common.client.version}</version>
+        </dependency>
+
+  </dependencies>
+  
+</project>

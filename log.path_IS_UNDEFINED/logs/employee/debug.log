@@ -1,0 +1,4 @@
+2024-06-24 15:42:15.136 WARN  [employee,,] [main]  com.bda.common.core.bo.AbstractProxy.getProxyInstance - 目标类 [class org.springframework.boot.env.OriginTrackedMapPropertySource] 为 [public final] ,不做代理
+2024-06-24 15:42:16.036 WARN  [employee,,] [main]  com.bda.common.core.bo.AbstractProxy.getProxyInstance - 目标类 [class org.springframework.boot.env.OriginTrackedMapPropertySource] 为 [public final] ,不做代理
+2024-06-24 15:42:16.040 INFO  [employee,,] [main]  com.bda.employee.cloud.app.EmployeeStarter.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2024-06-24 15:42:20.198 INFO  [employee,,] [main]  com.bda.employee.cloud.app.EmployeeStarter.logStarted - Started EmployeeStarter in 5.753 seconds (JVM running for 6.818)

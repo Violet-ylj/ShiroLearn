@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds" debug="false">
+     <!-- 引用 bootstrap.properties  -->
+     <property resource="bootstrap.properties" />
+     <!-- 定义日志输出格式 -->
+     <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [${spring.application.name},%X{traceId:-},%X{spanId:-}] [%thread]  %logger.%M - %msg%n"/>   
+     
+     <!-- 控制 默认输出 -->
+	 <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+ 	 <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>debug</level>
+		</filter>  
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	 </appender>
+
+     <!--  debug 日志存放区 -->
+	 <appender name="DebugFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/logs/${spring.application.name}/debug.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/logs/${spring.application.name}/debug-%d{yyyy-MM-dd}-%i.log.zip</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>debug</level>
+		</filter>
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+
+    <!--  error 日志存放区 -->
+	<appender name="ErrorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/logs/${spring.application.name}/error.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/logs/${spring.application.name}/error-%d{yyyy-MM-dd}-%i.log.zip</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>error</level>
+		</filter>
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.alibaba.druid.filter.stat.StatFilter" level="off"/>
+	<logger name="com.bda.common.job.BdaJobManage" level="off"/>
+	<logger name="org.springframework.boot.web.embedded.tomcat.TomcatWebServer" level="INFO"/>
+	<logger name="reactor.ipc.netty" level="DEBUG"/>
+	 
+	<logger name="com.bda" level="debug">
+	    <appender-ref ref="DebugFile" /> 
+    </logger> 
+    
+	<root level="error">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ErrorFile" /> 
+	</root>
+	 
+	 
+</configuration>
